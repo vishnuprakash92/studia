@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #082b5f;
+  --color-accent: #b28b4f;
+  --color-bg: #f7f7f5;
+  --color-text-secondary: #5d6a80;
+  --color-white: #ffffff;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

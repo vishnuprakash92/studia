@@ -101,7 +101,7 @@ const services = [
   },
   {
     stepLabel: 'Overseas Support',
-    title: 'Overseas Student Assistance',
+    title: 'On-arrival assistance',
     icon: '🎧',
     description:
       'Our support continues even after you arrive abroad. We provide ongoing assistance for settling in, local support, academic adjustments, and student wellbeing to ensure a comfortable international education experience.',
@@ -271,6 +271,17 @@ export default function StudiaConnectLandingPage() {
 
           <div className="flex items-center gap-3">
             <a
+              href="https://wa.me/917338839931"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[#25D366] text-white hover:bg-[#128C7E] shadow-lg transition-all"
+              aria-label="Chat on WhatsApp"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.01 2.014c-5.46 0-9.91 4.46-9.91 9.94 0 1.76.46 3.44 1.33 4.93L2.06 22l5.24-1.37c1.45.82 3.12 1.25 4.86 1.25 5.46 0 9.91-4.46 9.91-9.93 0-5.48-4.46-9.936-10.06-9.936zM17.43 16.3c-.22.61-1.29 1.18-1.78 1.25-.45.06-.98.11-3.23-.83-2.7-1.12-4.41-3.92-4.54-4.1-.14-.17-1.09-1.46-1.09-2.79 0-1.33.69-2.01.93-2.26.24-.25.53-.32.7-.32.18 0 .35 0 .5.01.16.01.37-.06.57.43.2.48.69 1.68.75 1.8.06.12.1.26.02.43-.09.17-.13.27-.26.43-.13.15-.28.34-.39.46-.13.13-.27.27-.12.53.15.26.68 1.13 1.46 1.83.99.91 1.85 1.2 2.11 1.33.26.13.41.11.56-.06.15-.17.65-.75.82-1.01.17-.26.34-.22.58-.13.23.09 1.48.7 1.73.83.25.13.41.19.47.3.06.11.06.63-.16 1.24z"/>
+              </svg>
+            </a>
+            <a
               href="#contact"
               className="hidden sm:inline-flex bg-[#082b5f] hover:bg-[#0f3f84] text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg transition-all"
             >
@@ -345,7 +356,7 @@ export default function StudiaConnectLandingPage() {
               </p>
 
               <h2 className="text-5xl sm:text-6xl lg:text-7xl leading-none font-serif mb-8">
-                Australia & <br /> New Zealand
+                New Zealand & <br /> Australia
               </h2>
 
               <div className="space-y-2 text-3xl sm:text-4xl lg:text-5xl font-serif leading-tight mb-8">
@@ -362,7 +373,7 @@ export default function StudiaConnectLandingPage() {
 
               <p className="text-lg text-[#4d5b72] leading-relaxed mb-10 max-w-lg">
                 Personalised overseas education guidance with dedicated consultants in India,
-                Australia, and New Zealand.
+                New Zealand, and Australia.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -456,8 +467,9 @@ export default function StudiaConnectLandingPage() {
                     <ul className="space-y-3 text-base leading-relaxed">
                       <li>• University of Auckland</li>
                       <li>• University of Otago</li>
-                      <li>• Victoria University of Wellington</li>
                       <li>• Massey University</li>
+                      <li>• Auckland University of Technology – AUT</li>
+                      <li>• Victoria University of Wellington</li>
                     </ul>
                   </div>
 
@@ -676,12 +688,12 @@ export default function StudiaConnectLandingPage() {
                 Trusted Advisors For Global Education Journeys
               </h3>
               <p className="text-[#5d6a80] text-lg leading-relaxed mb-6">
-                Studia Connect supports students and families through every stage of
+                Studia Connect Global Education Private Limited supports students and families through every stage of
                 international admissions. From course shortlisting to visa readiness, we
                 deliver transparent, student-first guidance.
               </p>
               <p className="text-[#5d6a80] text-lg leading-relaxed">
-                With teams in India, Australia, and New Zealand, we combine local mentorship
+                With teams in India, New Zealand, and Australia, we combine local mentorship
                 with overseas expertise for better academic and career outcomes.
               </p>
             </div>
@@ -887,10 +899,10 @@ export default function StudiaConnectLandingPage() {
                     id="destination"
                     name="destination"
                     className="w-full rounded-xl border border-[#d8dfe9] bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-[#082b5f]/25"
-                    defaultValue="Australia"
+                    defaultValue="New Zealand"
                   >
-                    <option>Australia</option>
                     <option>New Zealand</option>
+                    <option>Australia</option>
                     <option>Undecided</option>
                   </select>
                 </div>
@@ -937,14 +949,6 @@ export default function StudiaConnectLandingPage() {
         </p>
       </section>
 
-      <section id="terms" className="max-w-7xl mx-auto px-6 py-12 border-t border-[#ece7df]">
-        <h3 className="text-2xl font-serif mb-3">Terms & Conditions</h3>
-        <p className="text-[#5d6a80] leading-relaxed">
-          Consultation outcomes depend on eligibility, university criteria, and visa
-          regulations. Final admissions and visa approvals are subject to official decisions.
-        </p>
-      </section>
-
       <footer className="bg-[#04162f] text-white py-10">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           <div>
@@ -961,7 +965,6 @@ export default function StudiaConnectLandingPage() {
               <a href="/faq" className="hover:text-white">FAQ</a>
               <a href="/blog" className="hover:text-white">Blog</a>
               <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
-              <a href="/terms-conditions" className="hover:text-white">Terms</a>
             </div>
           </div>
           <div>
@@ -969,7 +972,7 @@ export default function StudiaConnectLandingPage() {
             <div className="flex gap-4 text-sm text-white/80">
               <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
               <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
-              <a href="https://www.youtube.com" target="_blank" rel="noreferrer" className="hover:text-white">YouTube</a>
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="hover:text-white">Facebook</a>
             </div>
           </div>
         </div>

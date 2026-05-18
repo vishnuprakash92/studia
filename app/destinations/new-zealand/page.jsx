@@ -16,8 +16,9 @@ export default function NewZealandPage() {
         <ul className="list-disc pl-6 text-[#5d6a80] space-y-1 mb-8">
           <li>University of Auckland</li>
           <li>University of Otago</li>
-          <li>Victoria University of Wellington</li>
           <li>Massey University</li>
+          <li>Auckland University of Technology – AUT</li>
+          <li>Victoria University of Wellington</li>
         </ul>
         <h2 className="text-2xl font-serif mb-3">Popular Courses</h2>
         <p className="text-[#5d6a80]">Business, Information Technology, Nursing, Engineering, Hospitality, Design.</p>

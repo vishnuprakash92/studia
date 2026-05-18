@@ -2,20 +2,21 @@ import './globals.css'
 
 export const metadata = {
   metadataBase: new URL('https://studiaconnect.com'),
-  title: 'Studia Connect | Study in Australia & New Zealand',
+  title: 'Studia Connect | Study in New Zealand & Australia',
   description:
-    'Premium overseas education consultancy helping students in India study in Australia and New Zealand with personalized counselling, university guidance, visa support, and consultation booking.',
+    'Premium overseas education consultancy helping students in India study in New Zealand and Australia with personalized counselling, university guidance, visa support, and consultation booking.',
   keywords: [
-    'Study abroad Australia',
     'Study in New Zealand',
+    'Study abroad Australia',
     'Overseas education consultant Chennai',
+    'New Zealand student visa',
     'Australia student visa',
     'Studia Connect',
   ],
   openGraph: {
     title: 'Studia Connect | Global Education Consultancy',
     description:
-      'Your dream destination for overseas education guidance across Australia and New Zealand.',
+      'Your dream destination for overseas education guidance across New Zealand and Australia.',
     type: 'website',
   },
 }
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
       email: 'info@studiaconnect.com',
     },
     areaServed: ['IN', 'AU', 'NZ'],
-    sameAs: ['https://www.instagram.com', 'https://www.linkedin.com', 'https://www.youtube.com'],
+    sameAs: ['https://www.instagram.com', 'https://www.linkedin.com', 'https://www.facebook.com'],
   }
 
   return (

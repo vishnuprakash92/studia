@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Blog | Studia Connect',
   description:
-    'Insights on universities, visa updates, and study abroad planning for Australia and New Zealand.',
+    'Insights on universities, visa updates, and study abroad planning for New Zealand and Australia.',
 }
 
 export default function BlogPage() {

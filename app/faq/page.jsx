@@ -15,7 +15,7 @@ const faqs = [
 
 export const metadata = {
   title: 'FAQ | Studia Connect',
-  description: 'Frequently asked questions about studying in Australia and New Zealand with Studia Connect support.',
+  description: 'Frequently asked questions about studying in New Zealand and Australia with Studia Connect support.',
 }
 
 export default function FAQPage() {

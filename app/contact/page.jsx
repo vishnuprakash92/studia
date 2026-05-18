@@ -4,7 +4,7 @@ import { contactDetails } from '../../lib/contactData'
 export const metadata = {
   title: 'Contact | Studia Connect',
   description:
-    'Contact Studia Connect for personalized consultation on studying in Australia and New Zealand.',
+    'Contact Studia Connect for personalized consultation on studying in New Zealand and Australia.',
 }
 
 export default function ContactPage() {

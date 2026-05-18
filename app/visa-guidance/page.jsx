@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Visa Guidance | Studia Connect',
   description:
-    'Get expert support for student visa documentation, financials, and interview readiness for Australia and New Zealand.',
+    'Get expert support for student visa documentation, financials, and interview readiness for New Zealand and Australia.',
 }
 
 export default function VisaGuidancePage() {

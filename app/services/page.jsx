@@ -25,7 +25,7 @@ const services = [
       'Prepare for your overseas transition with comprehensive pre-departure guidance. From accommodation and travel planning to cultural orientation and essential checklists, we help students feel confident before they fly.',
   },
   {
-    title: 'Overseas Student Assistance',
+    title: 'On-arrival assistance',
     description:
       'Our support continues even after you arrive abroad. We provide ongoing assistance for settling in, local support, academic adjustments, and student wellbeing to ensure a comfortable international education experience.',
   },

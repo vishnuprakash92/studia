@@ -57,7 +57,7 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
         width={size + 100} 
         height={size + 100} 
         viewBox={`0 0 ${size + 100} ${size + 100}`} 
-        className="absolute" 
+        className="absolute z-0 overflow-visible" 
       >
         <g transform={`translate(50, 50)`}>
           {/* Layer 1: Atmospheric Glow Ring (Depth layer beneath the base) */}
@@ -68,7 +68,7 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
             fill="none" 
             stroke="#b28b4f" 
             strokeWidth="4" 
-            className="opacity-30 blur-md"
+            className="opacity-40 blur-[6px]"
           />
 
           {/* Layer 2: Solid Subtle Inner Base Ring (Structural Spine) */}
@@ -82,7 +82,7 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
           />
           
           {/* --- LAYER 3: PROGRESSIVE GLOW ARC --- */}
-          {activeStep > 0 && (
+          {activeStep >= 0 && (
             <motion.g
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -93,7 +93,7 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
                 d={progressiveArcPath}
                 fill="none" 
                 stroke="#b28b4f" 
-                strokeWidth="3" 
+                strokeWidth="4" 
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
@@ -105,12 +105,12 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
                 d={progressiveArcPath}
                 fill="none" 
                 stroke="url(#glowGradient)" 
-                strokeWidth="8" 
+                strokeWidth="10" 
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="opacity-60 blur-[4px]"
+                className="opacity-70 blur-[4px]"
               />
             </motion.g>
           )}

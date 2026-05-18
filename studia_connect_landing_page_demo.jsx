@@ -977,7 +977,7 @@ export default function StudiaConnectLandingPage() {
           </div>
         </div>
         <p className="text-center text-sm tracking-wide mt-8 text-white/75">
-          © 2026 Studia Connect Global Education. All rights reserved.
+          © 2026 Studia Connect Global Education Private Limited. All rights reserved.
         </p>
       </footer>
     </div>

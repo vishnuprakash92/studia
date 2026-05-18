@@ -5,12 +5,10 @@ import { useState } from 'react'
 import OrbitBackground from './orbit/OrbitBackground'
 import OrbitCenterCard from './orbit/OrbitCenterCard'
 import OrbitNode from './orbit/OrbitNode'
+import { ORBIT_RADIUS } from '../../lib/orbitGeometry'
 
 export default function JourneyCircularFlow({ services }) {
   const [activeStep, setActiveStep] = useState(0)
-
-  // Desktop Orbit Radius Configuration
-  const ORBIT_RADIUS = 360 // Increased to give the 420px center card ample room
 
   return (
     <div className="max-w-7xl mx-auto mt-8 px-4">

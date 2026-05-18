@@ -1,40 +1,33 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { getArcPath } from '../../../lib/orbitGeometry'
 
 export default function OrbitBackground({ radius, activeStep, totalSteps }) {
   // Convert radius to full diameter for the SVG box
   const size = radius * 2
 
-  // Progress arc calculations
-  // Circumference of the circle = 2 * PI * r
-  const circumference = 2 * Math.PI * radius
-  
-  // What fraction of the journey is complete? (E.g. Step 1 = 0%, Step 6 = 100%)
-  const progressFraction = activeStep / (Math.max(1, totalSteps - 1))
-  
-  // Calculate dash offset to stroke the path from the top (-90deg)
-  const strokeDashoffset = circumference - (progressFraction * circumference)
+  // Generate the exact SVG path `d` string that stops at the center of the active node.
+  const progressiveArcPath = getArcPath(activeStep, totalSteps, radius)
 
   return (
-    <motion.div 
-      className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      // Ultra-slow continuous rotation to make the system feel "alive"
-      animate={{ rotate: 360 }}
-      transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-    >
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
       {/* Subtle outer glow to soften the geometry */}
       <div 
         className="absolute rounded-full bg-[#082b5f]/[0.02]" 
         style={{ width: size + 80, height: size + 80 }} 
       />
 
-      <svg 
+      <motion.svg 
         width={size + 100} 
         height={size + 100} 
         viewBox={`0 0 ${size + 100} ${size + 100}`} 
         className="absolute" 
+        // Ultra-slow continuous rotation for the *background grid only*
+        animate={{ rotate: 360 }}
+        transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
       >
+        {/* We place the visual elements at (50, 50) since we padded the viewBox by 100 */}
         <g transform={`translate(50, 50)`}>
           {/* --- NAVIGATIONAL GRID MOTIF --- */}
           
@@ -55,9 +48,18 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
             const y2 = radius + Math.sin(angle) * (radius + 5)
             return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#ebe5dc" strokeWidth="1" />
           })}
+        </g>
+      </motion.svg>
 
-          {/* --- MAIN ORBIT RINGS --- */}
-
+      {/* STATIC SVG for the primary orbit ring and progress arc. 
+          This must NOT rotate so the math stays perfectly aligned with the DOM nodes. */}
+      <svg 
+        width={size + 100} 
+        height={size + 100} 
+        viewBox={`0 0 ${size + 100} ${size + 100}`} 
+        className="absolute" 
+      >
+        <g transform={`translate(50, 50)`}>
           {/* Solid Subtle Inner Base Ring */}
           <circle 
             cx={radius} 
@@ -81,37 +83,38 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
           />
           
           {/* --- PROGRESSIVE GLOW ARC --- */}
-          {/* We rotate this group -90deg so the stroke starts exactly at the top (Step 01) */}
-          <g transform={`rotate(-90 ${radius} ${radius})`}>
-            {/* The base gold active arc */}
-            <motion.circle 
-              cx={radius} 
-              cy={radius} 
-              r={radius} 
-              fill="none" 
-              stroke="#b28b4f" 
-              strokeWidth="3" 
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              animate={{ strokeDashoffset }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-            
-            {/* The outer blur glow of the active arc */}
-            <motion.circle 
-              cx={radius} 
-              cy={radius} 
-              r={radius} 
-              fill="none" 
-              stroke="url(#glowGradient)" 
-              strokeWidth="8" 
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              animate={{ strokeDashoffset }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="opacity-60 blur-[4px]"
-            />
-          </g>
+          {activeStep > 0 && (
+            <motion.g
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* The base gold active arc */}
+              <motion.path 
+                d={progressiveArcPath}
+                fill="none" 
+                stroke="#b28b4f" 
+                strokeWidth="3" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              />
+              
+              {/* The outer blur glow of the active arc */}
+              <motion.path 
+                d={progressiveArcPath}
+                fill="none" 
+                stroke="url(#glowGradient)" 
+                strokeWidth="8" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="opacity-60 blur-[4px]"
+              />
+            </motion.g>
+          )}
 
           <defs>
             <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -121,6 +124,6 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
           </defs>
         </g>
       </svg>
-    </motion.div>
+    </div>
   )
 }

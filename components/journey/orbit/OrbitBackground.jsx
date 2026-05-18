@@ -60,29 +60,28 @@ export default function OrbitBackground({ radius, activeStep, totalSteps }) {
         className="absolute" 
       >
         <g transform={`translate(50, 50)`}>
-          {/* Solid Subtle Inner Base Ring */}
-          <circle 
-            cx={radius} 
-            cy={radius} 
-            r={radius} 
-            fill="none" 
-            stroke="#ebe5dc" 
-            strokeWidth="1.5" 
-          />
-
-          {/* Decorative Travel Route (Dashed Gold) - Muted */}
+          {/* Layer 1: Atmospheric Glow Ring (Depth layer beneath the base) */}
           <circle 
             cx={radius} 
             cy={radius} 
             r={radius} 
             fill="none" 
             stroke="#b28b4f" 
-            strokeWidth="1.5" 
-            strokeDasharray="4 12"
-            className="opacity-30"
+            strokeWidth="4" 
+            className="opacity-30 blur-md"
+          />
+
+          {/* Layer 2: Solid Subtle Inner Base Ring (Structural Spine) */}
+          <circle 
+            cx={radius} 
+            cy={radius} 
+            r={radius} 
+            fill="none" 
+            stroke="#ebe5dc" 
+            strokeWidth="2" 
           />
           
-          {/* --- PROGRESSIVE GLOW ARC --- */}
+          {/* --- LAYER 3: PROGRESSIVE GLOW ARC --- */}
           {activeStep > 0 && (
             <motion.g
               initial={{ opacity: 0 }}

@@ -170,11 +170,15 @@ export default function StudiaConnectLandingPage() {
       </a>
 
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-serif font-semibold tracking-tight">Studia Connect</h1>
-            <p className="text-xs tracking-[0.3em] text-[#b28b4f] uppercase">Global Education</p>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between gap-4">
+          <a href="#home" className="group flex flex-col hover:opacity-90 transition-opacity">
+            <h1 className="text-4xl lg:text-5xl font-serif tracking-tight text-[#082b5f] leading-none mb-2">
+              Studia Connect
+            </h1>
+            <p className="text-xs lg:text-sm font-semibold tracking-[0.4em] text-[#b28b4f] uppercase pl-1 opacity-90">
+              Global Education
+            </p>
+          </a>
 
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-[#23395d]" aria-label="Primary Navigation">
             {navItems.map((item) => (
